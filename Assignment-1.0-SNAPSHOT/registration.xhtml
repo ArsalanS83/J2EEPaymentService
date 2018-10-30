@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>User Registration</title>
+    </h:head>
+    <h:body>
+        <h1>User Registration</h1>
+        <h:form id="registrationForm">
+            <h:outputText value="First Name:"></h:outputText>
+            <h:inputText label="firstName" value="#{registrationBean.firstName}" required="true" requiredMessage="First Name Required!" validatorMessage="Upper and Lowercase Letters Only!">
+                <f:validateRegex pattern="^[a-zA-Z]+$"></f:validateRegex>
+                <!-- Ensure first name only consists of upper and lowercase letters -->
+                <!-- Regular Expression Source: http://stackoverflow.com/questions/3617797/regex-to-match-only-letters -->
+            </h:inputText>
+            <br></br>
+            
+            <h:outputText value="Surname:"></h:outputText>
+            <h:inputText label="surname" value="#{registrationBean.surname}" required="true" requiredMessage="Surname Required!" validatorMessage="Upper and Lowercase Letters Only!">
+                <f:validateRegex pattern="^[a-zA-Z]+$"></f:validateRegex>
+                <!-- Ensure surname name only consists of upper and lowercase letters -->
+                <!-- Regular Expression Source: http://stackoverflow.com/questions/3617797/regex-to-match-only-letters -->
+            </h:inputText>
+            <br></br>
+            
+            <p style="color: grey; font-size: 15px">Required Format: dd-MM-yyyy or dd/MM/yyyy</p>
+            <h:outputText value="Date of Birth:"></h:outputText>
+            <h:inputText label="dob" value="#{registrationBean.dateOfBirth}" required = "true" requiredMessage="Date of Birth Required!">
+                <f:converter converterId="multiDateConverter"/>
+                <f:attribute name="pattern1" value="dd-MM-yyyy" />
+                <f:attribute name="pattern2" value="dd/MM/yyyy" />
+                <!-- Ensure date entered matches the 1 out of 2 of the required formats of the converter -->
+            </h:inputText>
+            <br></br>
+            
+            <h:outputText value="Username:"></h:outputText>
+            <h:inputText label="email" value="#{registrationBean.username}" required="true" requiredMessage="Username Required!"></h:inputText>
+            <br></br>
+            
+            <h:outputText value="Password:"></h:outputText>
+            <h:inputSecret label="password" value="#{registrationBean.userpassword}" required="true" requiredMessage="Password Required!"></h:inputSecret>
+            <br></br>
+            
+            <h:outputText value="Confirm Password:"></h:outputText>
+            <h:inputSecret label="confirmPassword" value="#{registrationBean.confirmPassword}" required="true" requiredMessage="Password Required!"></h:inputSecret>
+            <br></br>
+            
+            <h:outputText value="Email Address:"></h:outputText>
+            <h:inputText label="email" value="#{registrationBean.emailAddress}" required="true" requiredMessage="Email Required!" validatorMessage="Invalid Email!">
+                <f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]"></f:validateRegex>
+                <!-- Ensure email address is valid by checking if it contains an @ symbol -->
+                <!-- Regular Expression Source: http://stackoverflow.com/questions/7875108/email-validation-using-regular-expression-in-jsf-2-primefaces -->
+            </h:inputText>
+            <br></br>
+            
+            <h:outputText value="Phone Number:"></h:outputText>
+            <h:inputText label="phoneNumber" value="#{registrationBean.phoneNumber}" required="true" requiredMessage="Phone Number Required!" validatorMessage="Invalid Phone Number!">
+                <f:validateRegex pattern="[0-9]+"></f:validateRegex>
+                <!-- Ensure phone number entered only consists of 1 or more digits in the range 0-9 and no other characters -->
+            </h:inputText>
+            <br></br>
+            
+            <h:outputText value="Account Currency:"></h:outputText>
+            <h:selectOneMenu value="#{registrationBean.accountCurrency}">
+                <f:selectItem itemLabel="GB Pounds" itemValue="GB Pounds"></f:selectItem>
+                <f:selectItem itemLabel="US Dollars" itemValue="US Dollars"></f:selectItem>
+                <f:selectItem itemLabel="Euros" itemValue="Euros"></f:selectItem>
+            </h:selectOneMenu>
+            
+            <br></br>
+            <br></br>
+            
+            <h:button value = "Back" outcome="index"></h:button>
+            <h:commandButton type="submit" value="Register" action="#{registrationBean.register}"></h:commandButton>
+            <h:commandButton type="reset" value="Clear Form"/>
+        </h:form>
+        
+        <h:messages></h:messages>
+        
+    </h:body>
+</html>

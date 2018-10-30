@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Search User Transactions</title>
+    </h:head>
+    <h:body>
+        
+        <h:form>
+            <h:outputText value="Username:"></h:outputText>
+            <h:inputText label="username" value="#{adminUserTransactionsBean.username}" required="true" requiredMessage="Username Required!"></h:inputText>
+            <h:commandButton type="submit" value="View Transactions" action="#{adminUserTransactionsBean.search}"></h:commandButton>
+            <h:button value = "Back" outcome="viewedUserTransactions"></h:button>
+            <h:commandButton type="reset" value="Clear"/>
+            <br></br>
+        </h:form>
+        
+         <h:dataTable value="#{adminUserTransactionsBean.transactions}" var="transaction">
+            <h:column>    				
+                <f:facet name="header">Transaction Type</f:facet>    				
+                    #{transaction.transactionType}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Amount</f:facet>
+                    #{userTransactionsBean.format(transaction.amount,transaction.sender.accountCurrency)}
+                    <!-- pass the amount and the currency in order to format the amount with the relevant currency -->
+            </h:column>
+             <h:column>
+                <f:facet name="header">Sender Email Address</f:facet>
+                    #{transaction.sender.emailAddress}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Receiver Email Address</f:facet>
+                    #{transaction.reciever.emailAddress}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Received Amount</f:facet>
+                    #{adminUserTransactionsBean.format(transaction.convertedAmount,transaction.reciever.accountCurrency)}
+                    <!-- pass amount and currency to ensure received amount is the converted amount and displays in currency of receiver -->
+            </h:column>
+            <h:column>
+                <f:facet name="header">Status</f:facet>
+                    #{transaction.transactionStatus}
+            </h:column>
+        </h:dataTable>
+        
+        <h:messages></h:messages>
+        
+    </h:body>
+</html>

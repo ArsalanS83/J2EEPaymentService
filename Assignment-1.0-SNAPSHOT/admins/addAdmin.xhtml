@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Add Administrator</title>
+    </h:head>
+    <h:body>
+        
+        <h1> Add Administrator </h1>
+        
+        <h:form>
+            <h:outputText value="Username:"></h:outputText>
+            <h:inputText label="username" value="#{addAdminBean.username}" required="true" requiredMessage="Username Required!"></h:inputText>
+            <br></br>
+            
+            <h:outputText value="Password:"></h:outputText>
+            <h:inputSecret  label="password" value="#{addAdminBean.adminpassword}" required="true" requiredMessage="Admin Password Required!"></h:inputSecret>
+            <br></br>
+            
+            <h:button value = "Back" outcome="returnAdminHome"></h:button>
+            <h:commandButton type="submit" value="Add Admin" action="#{addAdminBean.add}"></h:commandButton>
+            <h:commandButton type="reset" value="Clear Form"/>
+        </h:form>
+        
+        <h:messages></h:messages>
+    </h:body>
+</html>

@@ -1,0 +1,286 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.2"
+              xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+    
+    <navigation-rule>
+        <from-view-id>/index.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>register</from-outcome>
+            <to-view-id>/registration.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/index.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>login</from-outcome>
+            <to-view-id>/login.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/registration.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>welcome</from-outcome>
+            <to-view-id>/login.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/login.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>home</from-outcome>
+            <to-view-id>/users/home.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/login.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>adminHome</from-outcome>
+            <to-view-id>/admins/adminHome.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/error.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>index</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+    </navigation-rule>
+     
+    <navigation-rule>
+        <from-view-id>/users/home.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>index</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/users/home.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>makePayment</from-outcome>
+            <to-view-id>/users/makePayment.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/users/home.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>sendPaymentRequest</from-outcome>
+            <to-view-id>/users/sendPaymentRequest.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/users/home.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>checkPaymentRequests</from-outcome>
+            <to-view-id>/users/checkPaymentRequests.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/users/home.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>logout</from-outcome>
+            <to-view-id>/login.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/users/makePayment.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>paymentSent</from-outcome>
+            <to-view-id>/users/paymentSent.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/users/paymentSent.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>paymentConfirmed</from-outcome>
+            <to-view-id>/users/home.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/users/sendPaymentRequest.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>paymentRequestSent</from-outcome>
+            <to-view-id>/users/paymentRequestSent.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/users/paymentRequestSent.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>paymentRequestConfirmed</from-outcome>
+            <to-view-id>/users/home.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+    </navigation-rule>
+    
+     <navigation-rule>
+        <from-view-id>/users/checkPaymentRequests.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>paymentAccepted</from-outcome>
+            <to-view-id>/users/paymentAccepted.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/users/checkPaymentRequests.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>paymentRequestRejected</from-outcome>
+            <to-view-id>/users/paymentRejected.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/users/paymentAccepted.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>accepted</from-outcome>
+            <to-view-id>/users/home.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/users/paymentRejected.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>rejected</from-outcome>
+            <to-view-id>/users/home.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/users/checkPaymentRequests.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>viewTransactionsComplete</from-outcome>
+            <to-view-id>/users/home.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/admins/adminHome.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>addAdmin</from-outcome>
+            <to-view-id>/admins/addAdmin.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/admins/addAdmin.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>adminAdded</from-outcome>
+            <to-view-id>/admins/adminAdded.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/admins/addAdmin.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>returnAdminHome</from-outcome>
+            <to-view-id>/admins/adminHome.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/admins/adminAdded.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>adminAddedConfirmed</from-outcome>
+            <to-view-id>/admins/adminHome.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/admins/adminHome.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>viewAllUsers</from-outcome>
+            <to-view-id>/admins/viewUsers.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/admins/adminHome.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>viewUserTransactions</from-outcome>
+            <to-view-id>/admins/viewTransactions.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/admins/viewUsers.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>viewedUsers</from-outcome>
+            <to-view-id>/admins/adminHome.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/admins/viewTransactions.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>viewedTransactions</from-outcome>
+            <to-view-id>/admins/adminHome.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+    </navigation-rule>
+    
+     <navigation-rule>
+        <from-view-id>/admins/adminHome.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>viewTransactionsOfUser</from-outcome>
+            <to-view-id>/admins/userTransactions.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/admins/userTransactions.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>viewedUserTransactions</from-outcome>
+            <to-view-id>/admins/adminHome.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/admins/adminHome.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>logout</from-outcome>
+            <to-view-id>/login.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+    </navigation-rule>    
+
+</faces-config>
