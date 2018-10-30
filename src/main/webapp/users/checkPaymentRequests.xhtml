@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Check Payment Requests</title>
+    </h:head>
+    <h:body>
+        <h1>Payment Requests</h1>
+        
+        <h:form>
+            
+         <h:dataTable value="#{pendingRequestBean.paymentRequests}" var="transaction">
+            <h:column>
+                <f:facet name="header">Amount</f:facet>
+                    #{pendingRequestBean.format(transaction.amount,transaction.sender.accountCurrency)}
+                    <!-- pass amount and currency to ensure amount is the converted amount and displays in currency of logged in user -->
+            </h:column>
+            <h:column>
+                <f:facet name="header">From</f:facet>
+                    #{transaction.sender.emailAddress}
+            </h:column>
+            <h:column>
+                <h:commandButton value="Send Payment" action="#{pendingRequestBean.acceptPaymentRequest(transaction.reciever.user.username,transaction.sender.emailAddress, transaction.amount,transaction.transactionID)}"></h:commandButton>
+                 <!-- Respond with a payment where the logged in user is the sender and the sender of the request is the recipient-->
+            </h:column>
+            <h:column>
+                <h:commandButton value="Reject Payment Request" action="#{pendingRequestBean.rejectPaymentRequest(transaction.transactionID)}"></h:commandButton>
+            </h:column>
+        </h:dataTable>
+            
+            <h:button value = "Back" outcome="viewTransactionsComplete"></h:button>
+            
+        </h:form>
+    </h:body>
+</html>

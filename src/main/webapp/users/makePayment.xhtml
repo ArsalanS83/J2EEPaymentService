@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Make Payment</title>
+    </h:head>
+    <h:body>
+        <h1>Make Payment</h1>
+        
+        <h:form>
+            <h:outputText value="Amount:"></h:outputText>
+            <h:inputText label="amount" required="true" requiredMessage="Amount Required!" value="#{paymentBean.amount}" validatorMessage="Amount can't be more than 2 Decimal Places!">
+                <f:convertNumber minFractionDigits="2" maxFractionDigits="2"></f:convertNumber>
+                <!-- Ensure amount entered is a number and not any other character -->
+            </h:inputText>
+            <br></br>
+        
+            <h:outputText value="Payment Recipient Email Address:"></h:outputText>
+            <h:inputText label="recipient" required="true" requiredMessage="Recipient Required!" value="#{paymentBean.reciever}" validatorMessage="Invalid Email!">
+                <f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]"></f:validateRegex>
+                <!-- Ensure email address is valid by checking if it contains an @ symbol -->
+                <!-- Regular Expression Source: http://stackoverflow.com/questions/7875108/email-validation-using-regular-expression-in-jsf-2-primefaces -->
+            </h:inputText>
+            <br></br>
+        
+            <h:button value = "Back" outcome="home"></h:button>
+            <h:commandButton type="submit" value="Make Payment" action="#{paymentBean.sendPayment()}"></h:commandButton>
+            <h:commandButton type="reset" value="Clear"/>
+        </h:form>
+        
+        <h:messages></h:messages>
+        
+    </h:body>
+</html>

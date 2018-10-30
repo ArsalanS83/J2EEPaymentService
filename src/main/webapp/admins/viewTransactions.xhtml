@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>All User Transactions</title>
+    </h:head>
+    <h:body>
+        
+        <h1>Online Payment Service Transactions</h1>
+        
+         <h:dataTable value="#{adminViewTransactionsBean.transactions}" var="transaction">
+            <h:column>    				
+                <f:facet name="header">Transaction Type</f:facet>    				
+                    #{transaction.transactionType}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Amount</f:facet>
+                    #{adminViewTransactionsBean.format(transaction.amount,transaction.sender.accountCurrency)}
+                     <!-- pass the amount and the currency in order to format the amount with the relevant currency -->
+            </h:column>
+             <h:column>
+                <f:facet name="header">Sender Email Address</f:facet>
+                    #{transaction.sender.emailAddress}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Receiver Email Address</f:facet>
+                    #{transaction.reciever.emailAddress}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Received Amount </f:facet>
+                    #{adminViewTransactionsBean.format(transaction.convertedAmount,transaction.reciever.accountCurrency)}
+                    <!-- pass amount and currency to ensure received amount is the converted amount and displays in currency of receiver -->
+            </h:column>
+            <h:column>
+                <f:facet name="header">Status</f:facet>
+                    #{transaction.transactionStatus}
+            </h:column>
+        </h:dataTable>
+        
+        <h:form>
+            <h:button value = "Back" outcome="viewedTransactions"></h:button>
+        </h:form>
+        
+    </h:body>
+</html>
