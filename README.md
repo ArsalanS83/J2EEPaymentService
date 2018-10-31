@@ -1,5 +1,7 @@
 # J2EEPaymentService
-Web based, multi-user payment service using Java Enterprise Edition (J2EE) technologies.
+Web based, multi-user payment service using Java Enterprise Edition (J2EE) technologies completed as part of my Web Applications and Services final year module at university.
+
+Download the Project ZIP file in the repo which contains everything to run the application.
 
 ## Overview
 
